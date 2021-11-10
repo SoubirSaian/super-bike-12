@@ -5,6 +5,7 @@ import AllProducts from './pages/AllProducts/AllProducts/AllProducts';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Home from './pages/Home/Home/Home';
 import NotFound from './pages/NotFound/NotFound';
+import ProductDetails from './pages/ProductDetails/ProductDetails';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
             </Route>
             <Route path="/allproducts">
               <AllProducts></AllProducts>
+            </Route>
+            <Route path="/:productId">
+              <ProductDetails></ProductDetails>
             </Route>
             <Route path="/dashboard">
               <Dashboard></Dashboard>
