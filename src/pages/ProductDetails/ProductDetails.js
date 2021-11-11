@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import PlaceOrder from '../PlaceOrder/PlaceOrder';
-import Footer from '../shared/Footer/Footer';
-import Header from '../shared/Header/Header';
+// import Footer from '../shared/Footer/Footer';
+// import Header from '../shared/Header/Header';
 import './ProductDetails.css';
 
 const ProductDetails = () => {
@@ -20,11 +20,11 @@ const ProductDetails = () => {
     
     return (
         <div>
-            <Header></Header>
+            {/* <Header></Header> */}
             {
                 singleProduct && <PlaceOrder key={singleProduct.id} product={singleProduct}></PlaceOrder>
             }
-            <Footer></Footer>
+            {/* <Footer></Footer> */}
         </div>
     );
 };

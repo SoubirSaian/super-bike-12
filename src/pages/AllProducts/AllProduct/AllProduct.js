@@ -37,7 +37,7 @@ const AllProduct = (props) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Link to={`/${id}`}>
+                    <Link to={`/allproducts/${id}`}>
                         <Button variant="contained">Order</Button>
                     </Link>
                     

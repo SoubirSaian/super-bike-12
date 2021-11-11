@@ -33,7 +33,7 @@ const Product = (props) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Link to={`/${id}`}>
+                    <Link to={`/home/${id}`}>
                         <Button variant="contained">Order</Button>
                     </Link> 
                 </CardActions>
