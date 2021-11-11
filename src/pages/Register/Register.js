@@ -5,8 +5,10 @@ import Header from '../shared/Header/Header';
 import './Register.css';
 import  TextField  from '@mui/material/TextField';
 import  Button  from '@mui/material/Button';
+import useFirebase from '../../hooks/usseFirebase';
 
 const Register = () => {
+    const {user,registerUser} = useFirebase();
     const [registerInfo,setRegisterInfo] = useState({});
     
     const handleInputField = e =>{
@@ -21,10 +23,15 @@ const Register = () => {
     }
     const handleEmailPasswordRegister = (e) =>{
          console.log(registerInfo.email,registerInfo.password,registerInfo.password2);
-         
+         if(registerInfo.password !== registerInfo.password2){
+             window.alert('enter right password');
+         }
+         registerUser(registerInfo.email,registerInfo.password);
          e.preventDefault();
          e.target.value = '';
     }
+    console.log(user.email);
+    
     return (
         <>
             <Header></Header>
