@@ -6,7 +6,7 @@ import './Header.css';
 
 const Header = () => {
 
-    const {user} = useAuth();
+    const {user,logOut} = useAuth();
 
     // const email =user.email;
     // const emailName = email?.subString(0,email?.lastIndexOf('@'));
@@ -23,7 +23,7 @@ const Header = () => {
                  <li><Link to="/register">Register</Link></li>
                  <span>{user.email}</span>
                  {
-                     user?.email ? <Button variant="contained">Log Out</Button> : <li><Link to="/login">Log In</Link></li>
+                     user?.email ? <Button onClick={logOut} variant="contained">Log Out</Button> : <li><Link to="/login">Log In</Link></li>
                  }
              </ul>
          </div>

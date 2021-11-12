@@ -5,8 +5,10 @@ import Footer from '../shared/Footer/Footer';
 import Header from '../shared/Header/Header';
 import  TextField  from '@mui/material/TextField';
 import './Login.css';
+import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
+    const {googleSignIn} =  useAuth();
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
 
@@ -56,6 +58,10 @@ const Login = () => {
                     <br />
                     <Button type="submit" sx={{width: '30%',m: 3}} variant="contained">Login</Button>
                 </form>
+                <br />
+
+                <p>------------------------</p>
+                <Button onClick={googleSignIn} variant="contained">Googgle</Button>
              </Box>
             <Footer></Footer>
         </>

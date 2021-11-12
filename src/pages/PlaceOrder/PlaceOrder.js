@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import './PlaceOrder.css';
@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box'
 import Modal from '@mui/material/Modal';
 import  TextField  from '@mui/material/TextField';
+import useAuth from '../../hooks/useAuth';
 
 const style = {
     position: 'absolute',
@@ -21,14 +22,46 @@ const style = {
 
 const PlaceOrder = (props) => {
     const {name,img,description,price} = props.product;
+    const {user} = useAuth();
+    const [number,setNumber] = useState('');
+    const [address,setAddress] = useState('');
+
         // modal handler 
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    const handleNumberInput = e =>{
+        setNumber(e.target.value);
+        e.preventDefault();
+    }
+    const handleAddressInput = e =>{
+        setAddress(e.target.value);
+        e.preventDefault();
+    }
+
     const handlePlaceOrder = e =>{
         
-        window.alert('Order placed successfully');
+        const orderData = {userEmail: user.email,userName: user.displayName,product: name,productPrice: price,number,address};
+        console.log(orderData);
+
+        fetch('http://localhost:5000/orderd_bike',{
+            method: 'POST',
+            headers : {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(orderData)
+        })
+        .then(res => res.json())
+        .then(data => {
+            
+            if(data.insertedId){
+                console.log(data);
+                window.alert('Order placed successfully');
+            }
+        })
+        
+        
         handleClose();
         e.preventDefault();
     }
@@ -64,33 +97,39 @@ const PlaceOrder = (props) => {
                            {/* modal input field  */}
                          <form onSubmit={handlePlaceOrder}>
                              <TextField
-                             sx={{width: '90%',m: 1}}
+                                disabled
+                                sx={{width: '90%',m: 1}}
                                 id="outlined-basic"
                                 name="email"
+                                defaultValue={user.email}
                                 label="email"
                                 variant="outlined"
                                 type="email"
                              />
                              <TextField
-                             sx={{width: '90%',m: 1}}
+                                disabled
+                                sx={{width: '90%',m: 1}}
                                 id="outlined-basic"
                                 name="name"
+                                defaultValue={user.displayName}
                                 label="Your Name"
                                 variant="outlined"
                                 type="text"
                              />
                              <TextField
-                             sx={{width: '90%',m: 1}}
+                                sx={{width: '90%',m: 1}}
                                 id="outlined-basic"
                                 name="number"
+                                onBlur={handleNumberInput}
                                 label="Contact Number"
                                 variant="outlined"
                                 type="number"
                              />
                              <TextField
-                             sx={{width: '90%',m: 1}}
+                                sx={{width: '90%',m: 1}}
                                 id="outlined-basic"
                                 name="address"
+                                onBlur={handleAddressInput}
                                 label="Your Address"
                                 variant="outlined"
                                 type="text"
