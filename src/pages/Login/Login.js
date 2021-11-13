@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import  Button  from '@mui/material/Button';
+import  Typography  from '@mui/material/Typography';
+import  CircularProgress  from '@mui/material/CircularProgress';
 import Footer from '../shared/Footer/Footer';
 import Header from '../shared/Header/Header';
 import  TextField  from '@mui/material/TextField';
+import  Alert  from '@mui/material/Alert';
 import './Login.css';
 import useAuth from '../../hooks/useAuth';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
-    const {googleSignIn} =  useAuth();
+    const {user,error,isLoading,loginUser,googleSignIn} =  useAuth();
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
 
@@ -26,9 +30,7 @@ const Login = () => {
     const handleLoginInput = (e) =>{
          
         console.log(email,password);
-        
-        
-        
+        loginUser(email,password);
         e.preventDefault();
         e.target.value = '';
     }
@@ -63,6 +65,26 @@ const Login = () => {
                 <p>------------------------</p>
                 <Button onClick={googleSignIn} variant="contained">Googgle</Button>
              </Box>
+
+             {/* display a circular progress while registeration */}
+             {
+                    isLoading && <CircularProgress/>
+              }
+
+                {/* display a successfully registerd text  */}
+                {
+                    user?.email && <Alert severity="success">user added successfully</Alert>
+                }
+
+                {/* display error messege  */}
+                {
+                    error && <Alert severity="error">{error}</Alert>
+                }
+                <Link to="/login" style={{textDecoration: 'none'}}>
+                        <Typography variant="h6" gutterBottom>
+                            If you are a new user ? go to Register page
+                        </Typography>
+                </Link>
             <Footer></Footer>
         </>
     );

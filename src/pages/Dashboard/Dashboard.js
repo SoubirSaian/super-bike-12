@@ -6,12 +6,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -27,6 +21,9 @@ import MakeAdmin from './MakeAdmin/MakeAdmin';
 import ManageOrder from './ManageOrder/ManageOrder';
 import useAuth from '../../hooks/useAuth';
 import AdminRoute from '../AdminRoute/AdminRoute';
+import AddItem from './AddItem/AddItem';
+import Review from './Review/Review';
+// import Header from '../shared/Header/Header';
   
 
 
@@ -47,20 +44,15 @@ function Dashboard(props) {
       <Toolbar />
       <Divider />
 
-      <Link to={`${url}`}><Button variant="contained">My Order</Button></Link>
-      <Link to={`${url}/manageorder`}><Button variant="contained">Manage Order</Button></Link>
-      {admin && <Link to={`${url}/makeadmin`}><Button variant="contained">Make Admin</Button></Link>}
+      <Link to={`${url}`}><Button variant="contained" sx={{width: '90%',m: 1}}>My Order</Button></Link>
+      <Link to={`${url}/manageorder`}><Button variant="contained" sx={{width: '90%',m: 1}}>Manage Order</Button></Link>
+      
+      <Link to={`${url}/additem`}><Button variant="contained" sx={{width: '90%',m: 1}}>Add Item</Button></Link>
+      <Link to={`${url}/review`}><Button variant="contained" sx={{width: '90%',m: 1}}>Review Page</Button></Link>
+      {admin && <Link to={`${url}/makeadmin`}><Button variant="contained" sx={{width: '90%',m: 1}}>Make Admin</Button></Link>}
+      <Link to="/home"><Button variant="contained" sx={{width: '90%',m: 1}}>Home Page</Button></Link>
 
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+       
        
     </div>
   );
@@ -136,6 +128,12 @@ function Dashboard(props) {
             </Route>
             <Route path={`${path}/manageorder`}>
                 <ManageOrder></ManageOrder>
+            </Route> 
+            <Route path={`${path}/additem`}>
+              <AddItem></AddItem>
+            </Route>
+            <Route path={`${path}/review`}>
+              <Review></Review>
             </Route>
             <AdminRoute path={`${path}/makeadmin`}>
                 <MakeAdmin></MakeAdmin>
