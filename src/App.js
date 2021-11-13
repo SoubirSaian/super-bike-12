@@ -9,6 +9,7 @@ import Login from './pages/Login/Login';
 import NotFound from './pages/NotFound/NotFound';
 import ProductDetails from './pages/ProductDetails/ProductDetails';
 import Register from './pages/Register/Register';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -19,28 +20,28 @@ function App() {
                 <Route exact path="/">
                   <Home></Home>
                 </Route>
-                <Route path="/home/:productId">
+                <PrivateRoute path="/home/:productId">
                   <ProductDetails></ProductDetails>
-                </Route>
+                </PrivateRoute>
                 <Route path="/home">
                   <Home></Home>
                 </Route>
-                <Route path="/allproducts/:productId">
+                <PrivateRoute path="/allproducts/:productId">
                   <ProductDetails></ProductDetails>
-                </Route>
+                </PrivateRoute>
                 <Route path="/allproducts">
                   <AllProducts></AllProducts>
                 </Route>
-                <Route path="/dashboard">
+                <PrivateRoute path="/dashboard">
                   <Dashboard></Dashboard>
-                </Route>
+                </PrivateRoute>
                 <Route path="/register">
                   <Register></Register>
                 </Route> 
                 <Route path="/login">
                     <Login></Login>
                 </Route>
-                <Route >
+                <Route path="*">
                   <NotFound></NotFound>
                 </Route>
               </Switch>

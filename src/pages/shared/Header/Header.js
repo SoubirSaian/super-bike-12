@@ -8,8 +8,8 @@ const Header = () => {
 
     const {user,logOut} = useAuth();
 
-    // const email =user.email;
-    // const emailName = email?.subString(0,email?.lastIndexOf('@'));
+    const email =user?.email;
+    const emailName = email?.substring(0,email?.lastIndexOf('@'));
 
     return (
          <div className="nav-bar">
@@ -21,7 +21,7 @@ const Header = () => {
                  <li><Link to="/allproducts">All Product</Link></li>
                  <li><Link to="/dashboard">Dashboard</Link></li>
                  <li><Link to="/register">Register</Link></li>
-                 <span>{user.email}</span>
+                 <span>{emailName}</span>
                  {
                      user?.email ? <Button onClick={logOut} variant="contained">Log Out</Button> : <li><Link to="/login">Log In</Link></li>
                  }

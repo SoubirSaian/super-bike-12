@@ -12,7 +12,7 @@ const Products = () => {
     const [products,setProducts] = useState([]);
 
     useEffect(()=>{
-        fetch('./allBikes.json')
+        fetch('https://enigmatic-mesa-30035.herokuapp.com/all_bike')
             .then(res => res.json())
             .then(data => setProducts(data));
     },[]);
@@ -24,7 +24,7 @@ const Products = () => {
              </Typography>
              <Grid container sx={{mt:2}} rowSpacing={6} spacing={3}>
                 {
-                    products.slice(0,6).map(product => <Product key={product.id} product={product}></Product>)
+                    products.slice(0,6).map(product => <Product key={product._id} product={product}></Product>)
                 }
              </Grid>
 

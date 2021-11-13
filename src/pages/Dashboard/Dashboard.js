@@ -45,11 +45,16 @@ function Dashboard(props) {
       <Divider />
 
       <Link to={`${url}`}><Button variant="contained" sx={{width: '90%',m: 1}}>My Order</Button></Link>
-      <Link to={`${url}/manageorder`}><Button variant="contained" sx={{width: '90%',m: 1}}>Manage Order</Button></Link>
       
-      <Link to={`${url}/additem`}><Button variant="contained" sx={{width: '90%',m: 1}}>Add Item</Button></Link>
       <Link to={`${url}/review`}><Button variant="contained" sx={{width: '90%',m: 1}}>Review Page</Button></Link>
-      {admin && <Link to={`${url}/makeadmin`}><Button variant="contained" sx={{width: '90%',m: 1}}>Make Admin</Button></Link>}
+      
+      {admin && <Box>
+        <Link to={`${url}/makeadmin`}><Button variant="contained" sx={{width: '90%',m: 1}}>Make Admin</Button></Link>
+        <Link to={`${url}/manageorder`}><Button variant="contained" sx={{width: '90%',m: 1}}>Manage Order</Button></Link>
+        <Link to={`${url}/additem`}><Button variant="contained" sx={{width: '90%',m: 1}}>Add Item</Button></Link>
+        </Box>
+        }
+
       <Link to="/home"><Button variant="contained" sx={{width: '90%',m: 1}}>Home Page</Button></Link>
 
        
@@ -126,15 +131,15 @@ function Dashboard(props) {
             <Route exact path={path}>
                 <Myorder></Myorder>
             </Route>
-            <Route path={`${path}/manageorder`}>
-                <ManageOrder></ManageOrder>
-            </Route> 
-            <Route path={`${path}/additem`}>
-              <AddItem></AddItem>
-            </Route>
             <Route path={`${path}/review`}>
               <Review></Review>
             </Route>
+            <AdminRoute path={`${path}/manageorder`}>
+                <ManageOrder></ManageOrder>
+            </AdminRoute> 
+            <AdminRoute path={`${path}/additem`}>
+              <AddItem></AddItem>
+            </AdminRoute>
             <AdminRoute path={`${path}/makeadmin`}>
                 <MakeAdmin></MakeAdmin>
             </AdminRoute>

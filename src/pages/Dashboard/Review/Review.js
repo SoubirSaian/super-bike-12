@@ -23,11 +23,27 @@ const Review = () => {
     const handleUserReview = e =>{
         const reviewData = {name,review,rating};
         console.log(reviewData);
+
+        // send review data to server 
+        fetch(' https://enigmatic-mesa-30035.herokuapp.com/user_review',{
+            method : 'POST',
+            headers : {
+                'content-type' : 'application/json'
+            },
+            body : JSON.stringify(reviewData)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.insertedId){
+                window.alert("your review added sucessfully");
+            }
+        });
        
         setName('');
         setReview('');
         setRating('');
-        
+
         e.preventDefault();
     }
     return (

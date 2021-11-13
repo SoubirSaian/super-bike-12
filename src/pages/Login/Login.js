@@ -10,11 +10,14 @@ import  Alert  from '@mui/material/Alert';
 import './Login.css';
 import useAuth from '../../hooks/useAuth';
 import { Link } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router';
 
 const Login = () => {
     const {user,error,isLoading,loginUser,googleSignIn} =  useAuth();
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
+    const history = useHistory();
+    const location = useLocation();
 
      const handleEmailInput = e =>{
          setEmail(e.target.value);
@@ -29,11 +32,16 @@ const Login = () => {
 
     const handleLoginInput = (e) =>{
          
-        console.log(email,password);
-        loginUser(email,password);
+        // console.log(email,password);
+        loginUser(email,password,history,location);
         e.preventDefault();
         e.target.value = '';
     }
+
+    const handleGoogleSignIn =()=>{
+        googleSignIn(history,location);
+    }
+
     return (
         <>
             <Header></Header>
@@ -63,7 +71,7 @@ const Login = () => {
                 <br />
 
                 <p>------------------------</p>
-                <Button onClick={googleSignIn} variant="contained">Googgle</Button>
+                <Button onClick={handleGoogleSignIn} variant="contained">Googgle</Button>
              </Box>
 
              {/* display a circular progress while registeration */}

@@ -1,4 +1,5 @@
 import Typography from '@mui/material/Typography';
+import axios from 'axios';
 import React from 'react';
 import {useForm} from 'react-hook-form';
 import './AddItem.css';
@@ -10,11 +11,13 @@ const AddItem = () => {
 
     const onSubmit = data => {
         console.log(data);
-                // sending a new place info to database
-        fetch('')
-        .then(res => {
+        // sending a new place info to database
+         axios.post('https://enigmatic-mesa-30035.herokuapp.com/all_bike',data)
+         .then(res => {
             // console.log(res);
-             
+            if(res.data._id){
+                window.alert("A new item added successfully");
+            }
         })
         reset();
     };

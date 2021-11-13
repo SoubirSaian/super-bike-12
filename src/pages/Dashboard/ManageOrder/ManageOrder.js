@@ -4,7 +4,7 @@ const ManageOrder = () => {
     const [orders,setOrders]= useState([]);
 
     useEffect(()=>{
-        const url = ` https://enigmatic-mesa-30035.herokuapp.com/orderd_bike`;
+        const url = 'https://enigmatic-mesa-30035.herokuapp.com/orderd_bike/manageorder';
 
         fetch(url)
         .then(res => res.json())

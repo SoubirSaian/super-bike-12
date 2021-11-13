@@ -10,10 +10,12 @@ import  CircularProgress  from '@mui/material/CircularProgress';
 import  Alert  from '@mui/material/Alert';
 import useAuth from '../../hooks/useAuth';
 import { Link } from 'react-router-dom';
+import { useHistory} from 'react-router';
 
 const Register = () => {
     const {user,error,isLoading,registerUser} = useAuth();
     const [registerInfo,setRegisterInfo] = useState({});
+    const history = useHistory();
     
     const handleInputField = e =>{
         const field = e.target.name;
@@ -26,12 +28,12 @@ const Register = () => {
         // e.target.value = '';
     }
     const handleEmailPasswordRegister = (e) =>{
-         console.log(registerInfo.name,registerInfo.email,registerInfo.password,registerInfo.password2);
+        //  console.log(registerInfo.name,registerInfo.email,registerInfo.password,registerInfo.password2);
          
          if(registerInfo.password !== registerInfo.password2){
              window.alert('enter right password');
          }
-         registerUser(registerInfo.name,registerInfo.email,registerInfo.password);
+         registerUser(registerInfo.name,registerInfo.email,registerInfo.password,history);
          e.preventDefault();
          e.target.value = '';
     }

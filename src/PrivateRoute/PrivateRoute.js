@@ -7,7 +7,7 @@ const PrivateRoute = ({children, ...rest}) => {
 
     const {user,isLoading} = useAuth();
 
-    if(isLoading){ <CircularProgress></CircularProgress>}
+    if(isLoading){ return <CircularProgress/>}
 
     return (
         <Route
