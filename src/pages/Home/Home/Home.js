@@ -5,6 +5,7 @@ import HomeBanner from '../HomeBanner/HomeBanner';
 import Products from '../Products/Products';
 import DisplayReview from '../DisplayReview/DisplayReview';
 import './Home.css';
+import PressRelease from '../PressRelease/PressRelease';
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <Header></Header>
             <HomeBanner></HomeBanner>
             <Products></Products>
+            <PressRelease></PressRelease>
             <DisplayReview></DisplayReview>
             <Footer></Footer>
         </div>

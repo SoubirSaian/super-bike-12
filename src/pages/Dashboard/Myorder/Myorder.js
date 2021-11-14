@@ -26,7 +26,7 @@ const Myorder = () => {
      const handleDeleteProduct = (id) =>{
         const proceed = window.confirm('would you like to delete');
         if(proceed){
-            const url = `http://localhost:5000/orderd_bike/${id}`
+            const url = `https://enigmatic-mesa-30035.herokuapp.com/orderd_bike/${id}`
 
             fetch(url,{method : 'DELETE'})
                 .then(res => res.json())
@@ -39,6 +39,7 @@ const Myorder = () => {
                 })
         }
      }
+     
     return (
         <div>
              
@@ -50,7 +51,7 @@ const Myorder = () => {
                         <TableCell align="right">Price</TableCell>
                         <TableCell align="right">Name</TableCell>
                         <TableCell align="right">Email</TableCell>
-                        <TableCell align="right">Status</TableCell>
+                        <TableCell align="right">Delete Option</TableCell>
                     </TableRow>
                     </TableHead>
                     <TableBody>

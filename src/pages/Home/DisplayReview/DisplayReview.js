@@ -9,7 +9,7 @@ const DisplayReview = () => {
     const [reviews,setReviews] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/user_review')
+        fetch('https://enigmatic-mesa-30035.herokuapp.com/user_review')
             .then(res => res.json())
             .then(data => setReviews(data));
     },[]);

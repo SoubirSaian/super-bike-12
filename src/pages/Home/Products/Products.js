@@ -18,7 +18,7 @@ const Products = () => {
     },[]);
 
     return (
-         <Container sx={{my:8}}>
+            <Container sx={{my:8}}>
              <Typography variant="h4" color="#f44366" gutterBottom>
                  Our collection
              </Typography>
@@ -32,6 +32,7 @@ const Products = () => {
                 <Button variant="contained" sx={{m:6}}> For More Choice Click Here</Button>
              </Link>
          </Container>
+    
     );
 };
 

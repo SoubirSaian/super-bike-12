@@ -55,7 +55,7 @@ function Dashboard(props) {
         </Box>
         }
 
-      <Link to="/home"><Button variant="contained" sx={{width: '90%',m: 1}}>Home Page</Button></Link>
+      <Link to="/home"><Button variant="contained" sx={{width: '90%',m: 1,backgroundColor: '#ff9966'}}>Home Page</Button></Link>
 
        
        

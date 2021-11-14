@@ -7,7 +7,9 @@ const  AdminRoute = ({children, ...rest}) => {
 
     const {user,admin,isLoading} = useAuth();
 
-    if(isLoading && admin){ return <CircularProgress/>}
+    if(isLoading){ 
+        return <CircularProgress/>
+    }
 
     return (
         <Route

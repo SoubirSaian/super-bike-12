@@ -1,8 +1,7 @@
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import React from 'react';
 import './HomeBanner.css';
-import Typography from '@mui/material/Typography';
+
 
 import bikeImg from '../../../images/royal-enfield.jpg';
 

@@ -13,17 +13,17 @@ const Header = () => {
 
     return (
          <div className="nav-bar">
-             <div>
+             <div className="nav-logo">
                 <h2><i>Super Bike</i></h2>
              </div>
              <ul>
                  <li><Link to="/home">Home</Link></li>
                  <li><Link to="/allproducts">All Product</Link></li>
-                 <li><Link to="/dashboard">Dashboard</Link></li>
+                 {user?.email && <li><Link to="/dashboard">Dashboard</Link></li>}
                  <li><Link to="/register">Register</Link></li>
-                 <span>{emailName}</span>
+                 <span className="email-name">{emailName}</span>
                  {
-                     user?.email ? <Button onClick={logOut} variant="contained">Log Out</Button> : <li><Link to="/login">Log In</Link></li>
+                     user?.email ? <Button onClick={logOut} variant="contained" sx={{backgroundColor: '#ff9966'}}>Log Out</Button> : <li><Link to="/login">Log In</Link></li>
                  }
              </ul>
          </div>

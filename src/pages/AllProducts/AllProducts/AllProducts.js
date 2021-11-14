@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-// import Footer from '../../shared/Footer/Footer';
-// import Header from '../../shared/Header/Header';
+import Footer from '../../shared/Footer/Footer';
+import Header from '../../shared/Header/Header';
 import  Container  from '@mui/material/Container';
 import  Grid  from '@mui/material/Grid';
 import  Typography  from '@mui/material/Typography';
@@ -18,7 +18,7 @@ const AllProducts = () => {
 
     return (
         <div>
-            {/* <Header></Header> */}
+            <Header></Header>
             <Container sx={{my: 6}}>
                 <Typography variant="h4" sx={{mt: 4,mb:8,color: '#2195f3'}}>
                     All of our Bikes
@@ -29,7 +29,7 @@ const AllProducts = () => {
                     }
                 </Grid>
             </Container>
-            {/* <Footer></Footer> */}
+            <Footer></Footer>
         </div>
     );
 };
