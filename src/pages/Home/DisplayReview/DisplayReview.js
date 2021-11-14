@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 import MyReview from '../MyReview/MyReview';
 import './DisplayReview.css';
 
@@ -12,16 +13,18 @@ const DisplayReview = () => {
             .then(res => res.json())
             .then(data => setReviews(data));
     },[]);
-    console.log(reviews);
+    // console.log(reviews);
 
     return (
         <Box>
             <Typography variant="h4" gutterBottom>
                     Users Reviews 
             </Typography>
-             {
-                 reviews.map(review => <MyReview key={review._id} review={review}></MyReview>)
-             }
+             <Grid container spacing={2} rowSpacing={2} sx={{mt:2,mb: 3}}>
+                {
+                reviews &&  reviews.map(review => <MyReview key={review._id} review={review}></MyReview>)
+                }
+             </Grid>
         </Box>
     );
 };
