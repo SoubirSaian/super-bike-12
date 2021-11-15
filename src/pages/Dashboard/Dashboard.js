@@ -37,9 +37,9 @@ function Dashboard(props) {
 
   const {admin} = useAuth();
       // admin route refreshing 
-  if(!admin){
-    return <CircularProgress></CircularProgress>
-  }
+  // if(!admin){
+  //   return <CircularProgress></CircularProgress>
+  // }
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);

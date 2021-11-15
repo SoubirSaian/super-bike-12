@@ -5,6 +5,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 
+    //    press release component 
 const PressRelease = () => {
     return (
          <Container sx={{boxShadow: 4,py: 6,mb: 6}}>

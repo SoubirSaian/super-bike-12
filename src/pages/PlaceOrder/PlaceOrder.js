@@ -56,7 +56,7 @@ const PlaceOrder = (props) => {
         .then(data => {
             
             if(data.insertedId){
-                console.log(data);
+                // console.log(data);
                 window.alert('Order placed successfully');
             }
         })
