@@ -15,7 +15,7 @@ const MakeAdmin = () => {
     const handleMakeAdmin= e =>{
         const admin ={email};
 
-        fetch('http://enigmatic-mesa-30035.herokuapp.com/users/admin',{
+        fetch('https://enigmatic-mesa-30035.herokuapp.com/users/admin',{
             method : 'PUT',
             headers : {
                 'content-type' : 'application/json'

@@ -25,7 +25,7 @@ const ManageOrder = () => {
     const handleDeleteProduct = (id) =>{
         const proceed = window.confirm('would you like to delete');
         if(proceed){
-            const url = `http://enigmatic-mesa-30035.herokuapp.com/orderd_bike/manageorder/${id}`
+            const url = `https://enigmatic-mesa-30035.herokuapp.com/orderd_bike/manageorder/${id}`
 
             fetch(url,{method : 'DELETE'})
                 .then(res => res.json())
