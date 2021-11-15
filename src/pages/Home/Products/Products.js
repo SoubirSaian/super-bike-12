@@ -19,9 +19,10 @@ const Products = () => {
 
     return (
             <Container sx={{my:8}}>
-             <Typography variant="h4" color="#f44366" gutterBottom>
+             <Typography variant="h3" color="#f44366" gutterBottom>
                  Our collection
              </Typography>
+             <hr />
              <Grid container sx={{mt:2}} rowSpacing={6} spacing={3}>
                 {
                     products.slice(0,6).map(product => <Product key={product._id} product={product}></Product>)

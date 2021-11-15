@@ -16,6 +16,7 @@ import {
     useRouteMatch
   } from "react-router-dom";
 import  Button  from '@mui/material/Button';
+import  CircularProgress  from '@mui/material/CircularProgress';
 import Myorder from './Myorder/Myorder';
 import MakeAdmin from './MakeAdmin/MakeAdmin';
 import ManageOrder from './ManageOrder/ManageOrder';
@@ -23,17 +24,22 @@ import useAuth from '../../hooks/useAuth';
 import AdminRoute from '../AdminRoute/AdminRoute';
 import AddItem from './AddItem/AddItem';
 import Review from './Review/Review';
-// import Header from '../shared/Header/Header';
-  
+import Payment from './Payment/Payment';
 
-
+            // Dashboard Route component 
+        
 const drawerWidth = 240;
 
 function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   let { path, url } = useRouteMatch();
+
   const {admin} = useAuth();
+      // admin route refreshing 
+  if(!admin){
+    return <CircularProgress></CircularProgress>
+  }
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -47,6 +53,8 @@ function Dashboard(props) {
       <Link to={`${url}`}><Button variant="contained" sx={{width: '90%',m: 1}}>My Order</Button></Link>
       
       <Link to={`${url}/review`}><Button variant="contained" sx={{width: '90%',m: 1}}>Review Page</Button></Link>
+
+      <Link to={`${url}/payment`}><Button variant="contained" sx={{width: '90%',m: 1}}>Payment</Button></Link>
       
       {admin && <Box>
         <Link to={`${url}/makeadmin`}><Button variant="contained" sx={{width: '90%',m: 1}}>Make Admin</Button></Link>
@@ -126,13 +134,16 @@ function Dashboard(props) {
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
         <Toolbar />
-        
+              {/* dashboard internal switching and routing  */}
         <Switch>
             <Route exact path={path}>
                 <Myorder></Myorder>
             </Route>
             <Route path={`${path}/review`}>
               <Review></Review>
+            </Route>
+            <Route path={`${path}/payment`}>
+              <Payment></Payment>
             </Route>
             <AdminRoute path={`${path}/manageorder`}>
                 <ManageOrder></ManageOrder>

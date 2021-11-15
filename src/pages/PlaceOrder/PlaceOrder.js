@@ -43,9 +43,9 @@ const PlaceOrder = (props) => {
     const handlePlaceOrder = e =>{
         
         const orderData = {userEmail: user.email,userName: user.displayName,product: name,productPrice: price,number,address};
-        console.log(orderData);
+        // console.log(orderData);
 
-        fetch('http://localhost:5000/orderd_bike',{
+        fetch('http://enigmatic-mesa-30035.herokuapp.com/orderd_bike',{
             method: 'POST',
             headers : {
                 'content-type' : 'application/json'

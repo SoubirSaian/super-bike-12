@@ -10,7 +10,7 @@ import './AllProduct.css';
 import { Link } from 'react-router-dom';
 
 const AllProduct = (props) => {
-    const {id,name,img,description,price} = props.allproduct;
+    const {_id,name,img,description,price} = props.allproduct;
     return (
         <Grid item sx={{
             // some styles
@@ -37,7 +37,7 @@ const AllProduct = (props) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Link to={`/allproducts/${id}`}>
+                    <Link to={`/allproducts/${_id}`}>
                         <Button variant="contained">Order</Button>
                     </Link>
                     

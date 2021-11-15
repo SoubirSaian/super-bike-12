@@ -42,7 +42,10 @@ const Register = () => {
     return (
         <>
             <Header></Header>
-             <Box sx={{my: 8}}> 
+            <Typography variant="h4" sx={{mt: 3}}>
+                Complete your <span style={{color: '#f44366'}}>registration</span>
+            </Typography>
+             <Box sx={{mt: 3,mb: 8}}> 
                 <form onSubmit={handleEmailPasswordRegister}>
                     <TextField
                         sx={{width: '50%', m: 1}}

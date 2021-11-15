@@ -10,7 +10,7 @@ import './Product.css';
 import { Link } from 'react-router-dom';
 
 const Product = (props) => {
-    const {id,name,img,description,price} = props.product;
+    const {_id,name,img,description,price} = props.product;
 
     return (
          <Grid item xs={12} md={6} lg={4} sx={{":hover": {boxShadow: 8}}}>
@@ -33,7 +33,7 @@ const Product = (props) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Link to={`/home/${id}`}>
+                    <Link to={`/home/${_id}`}>
                         <Button variant="contained">Order</Button>
                     </Link> 
                 </CardActions>

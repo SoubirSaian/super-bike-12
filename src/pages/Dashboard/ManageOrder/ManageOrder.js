@@ -1,4 +1,5 @@
 import React, { useEffect,useState } from 'react';
+import Typography from '@mui/material/Typography';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -8,9 +9,10 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 
+
 const ManageOrder = () => {
     const [orders,setOrders]= useState([]);
-
+            // all manage order data fetching 
     useEffect(()=>{
         const url = 'https://enigmatic-mesa-30035.herokuapp.com/orderd_bike/manageorder';
 
@@ -19,10 +21,11 @@ const ManageOrder = () => {
         .then(data => setOrders(data));
     },[]);
 
+    // manage order item delete operation 
     const handleDeleteProduct = (id) =>{
         const proceed = window.confirm('would you like to delete');
         if(proceed){
-            const url = `http://localhost:5000/orderd_bike/manageorder/${id}`
+            const url = `http://enigmatic-mesa-30035.herokuapp.com/orderd_bike/manageorder/${id}`
 
             fetch(url,{method : 'DELETE'})
                 .then(res => res.json())
@@ -38,10 +41,9 @@ const ManageOrder = () => {
 
     return (
         <div>
-            <h2>manage order</h2>
-            {/* {   
-              orders &&  orders.map(order =>  <li>{order.userEmail}</li>)
-            } */}
+             <Typography variant="h4" sx={{mt: 4,mb: 6,color: '#0277bd',borderBottom: 2}}>
+                 Manage all order
+             </Typography>
              <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>

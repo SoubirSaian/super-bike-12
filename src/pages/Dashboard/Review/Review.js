@@ -40,15 +40,15 @@ const Review = () => {
             }
         });
        
-        setName('');
-        setReview('');
-        setRating('');
+        // setName('');
+        // setReview('');
+        // setRating('');
 
         e.preventDefault();
     }
     return (
          <Box>
-             <Typography variant="h4" gutterBottom>
+             <Typography variant="h4" sx={{m:2,color: '#0277bd'}} gutterBottom>
                 Write a review of your Experience
              </Typography>
              <form sx={{my: 3}} onSubmit={handleUserReview}>
@@ -80,7 +80,7 @@ const Review = () => {
                     variant="outlined"
                  />
                  <br />
-                 <Button type="submit" variant="contained">Submit your review</Button>
+                 <Button type="submit" variant="contained" sx={{m:1}}>Submit your review</Button>
              </form>
          </Box>
     );

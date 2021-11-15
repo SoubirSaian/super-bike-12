@@ -15,7 +15,7 @@ const MakeAdmin = () => {
     const handleMakeAdmin= e =>{
         const admin ={email};
 
-        fetch('http://localhost:5000/users/admin',{
+        fetch('http://enigmatic-mesa-30035.herokuapp.com/users/admin',{
             method : 'PUT',
             headers : {
                 'content-type' : 'application/json'
@@ -36,7 +36,7 @@ const MakeAdmin = () => {
     }
     return (
         <div>
-            <Typography variant="h5" gutterBottom>
+            <Typography variant="h5" sx={{m: 4, color: '#0277bd',borderBottom: 2}} gutterBottom>
                 Make Admin
             </Typography>
             <form onSubmit={handleMakeAdmin}>
@@ -48,8 +48,10 @@ const MakeAdmin = () => {
                     name="email"
                     variant="standard"
                 />
-                <Button type="submit" variant="contained">Make Admin</Button>
+                <br />
+                <Button type="submit" variant="contained" sx={{m: 2}}>Make Admin</Button>
             </form>
+            <br />
             {success && <Alert severity="success">made admin successfully</Alert>}
         </div>
     );

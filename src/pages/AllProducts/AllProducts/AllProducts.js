@@ -20,9 +20,10 @@ const AllProducts = () => {
         <div>
             <Header></Header>
             <Container sx={{my: 6}}>
-                <Typography variant="h4" sx={{mt: 4,mb:8,color: '#2195f3'}}>
+                <Typography variant="h4" sx={{mt: 4,mb:8,borderBottom: 2,color: '#2195f3'}}>
                     All of our Bikes
                 </Typography>
+                
                 <Grid container rowSpacing={6} spacing={2}>
                     {
                         allproducts.map(allproduct => <AllProduct key={allproduct._id} allproduct={allproduct}></AllProduct>)

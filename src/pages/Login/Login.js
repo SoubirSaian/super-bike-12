@@ -45,7 +45,10 @@ const Login = () => {
     return (
         <>
             <Header></Header>
-             <Box sx={{my: 8}}>
+            <Typography variant="h4" sx={{mt: 3}}>
+                 <span style={{color: '#f44366'}}>Login</span> here
+            </Typography>
+             <Box sx={{mt: 4,mb: 8}}>
                 <form onSubmit={handleLoginInput}>
                     <TextField
                         sx={{width: '50%', m: 1}}
@@ -88,11 +91,12 @@ const Login = () => {
                 {
                     error && <Alert severity="error">{error}</Alert>
                 }
-                <Link to="/login" style={{textDecoration: 'none'}}>
+                <Link to="/register" style={{textDecoration: 'none',}}>
                         <Typography variant="h6" gutterBottom>
                             If you are a new user ? go to Register page
                         </Typography>
                 </Link>
+                <div style={{margin: '60px'}}></div>
             <Footer></Footer>
         </>
     );

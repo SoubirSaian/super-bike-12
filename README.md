@@ -6,7 +6,7 @@ This project was bootstrapped with [Super Bike](https://super-bike-9aaee.web.app
 ### A collection of bike. Whereof you can find your favourite bike.
 
 
-- You can book a bike If you register in the website.
+- You can order a bike If you register in the website.
 - you can enter your details and all of your booking will be display in my order page.
 - if you register you will see a dashboard at the header section
 - In the dashboard you can see your order , you can add review and this review will be show in home page.

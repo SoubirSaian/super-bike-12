@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Typography from '@mui/material/Typography';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -42,7 +43,9 @@ const Myorder = () => {
      
     return (
         <div>
-             
+             <Typography variant="h4" sx={{mt: 4,mb: 6,color: '#0277bd',borderBottom: 2}}>
+                 All of your order
+             </Typography>
              <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>

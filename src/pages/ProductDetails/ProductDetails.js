@@ -10,19 +10,19 @@ const ProductDetails = () => {
     const [products,setProducts] = useState([]);
 
     useEffect(()=>{
-        fetch('/allBikes.json')
+        fetch('https://enigmatic-mesa-30035.herokuapp.com/all_bike')
             .then(res => res.json())
             .then(data => setProducts(data));
     },[]);
 
-    const singleProduct = products.find(product => product.id === parseInt(productId));
+    const singleProduct = products.find(product => product._id === productId);
     // console.log(singleProduct);
     
     return (
         <div>
             <Header></Header>
             {
-                singleProduct && <PlaceOrder key={singleProduct.id} product={singleProduct}></PlaceOrder>
+                singleProduct && <PlaceOrder key={singleProduct._id} product={singleProduct}></PlaceOrder>
             }
             <Footer></Footer> 
         </div>

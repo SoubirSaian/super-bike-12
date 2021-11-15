@@ -5,6 +5,7 @@ import Grid from '@mui/material/Grid';
 import MyReview from '../MyReview/MyReview';
 import './DisplayReview.css';
 
+        //   user review display component 
 const DisplayReview = () => {
     const [reviews,setReviews] = useState([]);
 
@@ -17,7 +18,7 @@ const DisplayReview = () => {
 
     return (
         <Box>
-            <Typography variant="h4" gutterBottom>
+            <Typography variant="h4" sx={{mx: 4,color: '#d50000'}} gutterBottom>
                     Users Reviews 
             </Typography>
              <Grid container spacing={2} rowSpacing={2} sx={{mt:2,mb: 3}}>
